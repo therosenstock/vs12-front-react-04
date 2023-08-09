@@ -48,7 +48,7 @@ Na construção de um formulário “cru”, você cria os componentes na mão o
 Segue abaixo um exemplo:
 
 ```javascript
-import React, { Component, ChangeEvent, FormEvent } from 'react';
+import React, { Component, ChangeEvent, FormEvent } from "react";
 
 interface State {
   name: string;
@@ -59,8 +59,8 @@ class FormExample extends Component<{}, State> {
   constructor(props: {}) {
     super(props);
     this.state = {
-      name: '',
-      email: '',
+      name: "",
+      email: "",
     };
   }
 
@@ -74,7 +74,7 @@ class FormExample extends Component<{}, State> {
 
   handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log('Form submitted with data:', this.state);
+    console.log("Form submitted with data:", this.state);
   };
 
   render() {
@@ -83,7 +83,29 @@ class FormExample extends Component<{}, State> {
         <h2>Form Example</h2>
         <form onSubmit={this.handleSubmit}>
           <div>
+            <label>Name:</label>
+            <input
+              type="text"
+              value={this.state.name}
+              onChange={this.handleNameChange}
+            />
+          </div>
+          <div>
+            <label>Email:</label>
+            <input
+              type="email"
+              value={this.state.email}
+              onChange={this.handleEmailChange}
+            />
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    );
+  }
+}
 
+export default FormExample;
 ```
 
 ## React Hook Form
